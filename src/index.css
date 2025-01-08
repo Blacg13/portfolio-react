@@ -1,0 +1,15 @@
+:root {
+  --primary-color: seashell;
+  --secondary-color: slateblue;
+}
+
+header {
+  height: 100dvh;
+  width: 30dvh;
+  background-color: seashell;
+}
+main {
+  height: 100dvh;
+  width: 70dvh;
+  background-color: slateblue;
+}
