@@ -1,7 +1,13 @@
 import style from './Tab.module.css';
-const Tab = (tabTopic, tabTitle, tabContent, githubTabLink, liveTabLink) => {
+const Tab = ({
+  tabTopic,
+  tabTitle,
+  tabContent,
+  githubTabLink,
+  liveTabLink,
+}) => {
   return (
-    <section className={style.tabTopic}>
+    <section className={style[{ tabTopic }]}>
       <div className={style['tab-spin-title']}>
         <h3>{tabTitle}</h3>
       </div>

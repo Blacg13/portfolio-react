@@ -1,15 +1,28 @@
 :root {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-decoration: none;
+
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  
   --primary-color: seashell;
   --secondary-color: slateblue;
 }
-
+body {
+  background-color: blanchedalmond;
+}
 header {
-  height: 100dvh;
-  width: 30dvh;
+  height: 100%;
+  width: 30%;
   background-color: seashell;
+  border-color: solid crimson 2px;
 }
 main {
-  height: 100dvh;
-  width: 70dvh;
+  height: 100%;
+  width: 70%;
   background-color: slateblue;
 }
