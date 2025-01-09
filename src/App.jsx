@@ -1,7 +1,7 @@
 import './App.css';
-import Title from './components/Title/Title';
-import ModeSwitcher from './components/ModeSwitcher/ModeSwitcher';
-import Tab from './components/Tab/Tab';
+import Title from '/src/components/Title/Title';
+import ModeSwitcher from '/src/components/ModeSwitcher/ModeSwitcher';
+import Tabs from '/src/components/Tabs/Tabs';
 
 function App() {
   return (
@@ -10,7 +10,8 @@ function App() {
         <Title /> <ModeSwitcher />
       </header>
       <main>
-        <Tab />
+        <h2>Portfolio</h2>
+        <Tabs />
       </main>
     </>
   );
