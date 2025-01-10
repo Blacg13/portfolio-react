@@ -1,8 +1,6 @@
 import style from './Tabs.module.css';
 
 const Tabs = () => {
-  console.log('tabs');
-
   const tabs = [
     {
       id: 1,
@@ -54,10 +52,10 @@ const Tabs = () => {
   ];
 
   return (
-    <>
+    <ul>
       {tabs.map((tab) => {
         return (
-          <>
+          <li>
             <Tab
               tabId={tab.tabTitle + tab.id}
               topic={tab.tabTopic}
@@ -68,10 +66,10 @@ const Tabs = () => {
               githubLink={tab.githubProjectLink}
               liveLink={tab.liveProjectLink}
             />
-          </>
+          </li>
         );
       })}
-    </>
+    </ul>
   );
 };
 export default Tabs;
@@ -87,18 +85,16 @@ const Tab = ({
   liveLink,
 }) => {
   return (
-    <section id={tabId} className={style[{ topic }]}>
+    <section id={tabId} className={style[`${topic}`]}>
       <div className={style['tab-spin-title']}>
         <h3>{title}</h3>
       </div>
       <div className={style['tab-content']}>
         <p>{content}</p>
-        <button>
+        <div className={style['tab-links']}>
           <a href={githubLink}>See the code on github</a>
-        </button>
-        <button>
           <a href={liveLink}>See the hosted site</a>
-        </button>
+        </div>
       </div>
     </section>
   );

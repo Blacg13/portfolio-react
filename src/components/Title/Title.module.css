@@ -1,6 +1,52 @@
-section {
+.title-me {
+    background-color: blanchedalmond;
+}
+.title-title {
+    background-color: rgb(247, 191, 108);
+}
+.title-links {
+    background-color: rgb(248, 241, 180);
+}
 
-    width: 400px;
-    height: 300px;
-    border: solid crimson 2px;
+.title-all {
+    padding: var(--padding-value);
+    border-radius: var(--radius-value);
+    border: solid 7px var(--tertiary-color);
+}
+.title-me {
+    padding: var(--padding-value);
+    align-items: center;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+        img {
+                height: 76px;
+                /* width: 64px; */
+                border-radius: 50%;
+        }
+        h1 {
+                width: max-content;
+                line-height: 4px;
+        }
+        h2 {
+                line-height: 4px;
+                color: var(--tertiary-color);
+        }
+}
+.title-links {
+    padding: var(--padding-value);
+    display: flex;
+    justify-content: space-evenly;
+}
+#file-icon {
+    width: 15px;
+    height: 15px;
+}
+#logo-github {
+    width: 16px;
+    height: 16px;
+}
+#logo-linkedin {
+    width: 24px;
+    height: 24px;
 }

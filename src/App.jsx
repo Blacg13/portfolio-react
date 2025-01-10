@@ -10,7 +10,6 @@ function App() {
         <Title /> <ModeSwitcher />
       </header>
       <main>
-        <h2>Portfolio</h2>
         <Tabs />
       </main>
     </>
