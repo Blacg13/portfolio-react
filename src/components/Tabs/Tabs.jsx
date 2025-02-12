@@ -1,4 +1,6 @@
 import style from './Tabs.module.css';
+import { useState } from 'react';
+import { useSpring, animated } from '@react-spring/web';
 
 const Tabs = () => {
   const tabs = [
@@ -52,24 +54,22 @@ const Tabs = () => {
   ];
 
   return (
-    <ul>
+    <>
       {tabs.map((tab) => {
         return (
-          <li>
-            <Tab
-              tabId={tab.tabTitle + tab.id}
-              topic={tab.tabTopic}
-              title={tab.tabTitle}
-              date={tab.projectDate}
-              language={tab.projectLanguages}
-              content={tab.tabContent}
-              githubLink={tab.githubProjectLink}
-              liveLink={tab.liveProjectLink}
-            />
-          </li>
+          <Tab
+            tabId={tab.tabTitle + tab.id}
+            topic={tab.tabTopic}
+            title={tab.tabTitle}
+            date={tab.projectDate}
+            language={tab.projectLanguages}
+            content={tab.tabContent}
+            githubLink={tab.githubProjectLink}
+            liveLink={tab.liveProjectLink}
+          />
         );
       })}
-    </ul>
+    </>
   );
 };
 export default Tabs;
@@ -84,18 +84,55 @@ const Tab = ({
   githubLink,
   liveLink,
 }) => {
+  const [isActive, setActive] = useState(false);
+
+  // const spring = useSpring({ from: { x: 0 }, to: { x: 100 } });
+  const [spring, api] = useSpring(() => ({
+    from: { x: 0 },
+  }));
+  const handleClick = () => {
+    api.start({
+      from: {
+        rotateY: 0,
+      },
+      to: {
+        rotateY: 180,
+      },
+    });
+  };
+
   return (
-    <section id={tabId} className={style[`${topic}`]}>
-      <div className={style['tab-spin-title']}>
-        <h3>{title}</h3>
-      </div>
-      <div className={style['tab-content']}>
-        <p>{content}</p>
-        <div className={style['tab-links']}>
-          <a href={githubLink}>See the code on github</a>
-          <a href={liveLink}>See the hosted site</a>
+    <section
+      id={`${tabId}_${topic}`}
+      className={style[`${topic}`]}
+      onClick={() => setActive(!isActive)}
+    >
+      <animated.div
+        className={style['tab-spin-title']}
+        style={spring}
+        onClick={handleClick}
+      >
+        <div className={style['flip-card-container']}>
+          {/* {isActive ? ( */}
+          {/* <div className={style['flip-card-recto']}>
+            <h3>{title}</h3>
+          </div> */}
+          {/* ) : ( */}
+          <div className={style['flip-card-verso']}>
+            <h3>{title}</h3>
+          </div>
+          {/* )} */}
         </div>
-      </div>
+      </animated.div>
+      {isActive ? (
+        <div className={style['tab-content']}>
+          <p>{content}</p>
+          <div className={style['tab-links']}>
+            <a href={githubLink}>See the code on github</a>
+            <a href={liveLink}>See the hosted site</a>
+          </div>
+        </div>
+      ) : null}
     </section>
   );
 };
