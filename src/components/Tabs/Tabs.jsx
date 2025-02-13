@@ -77,7 +77,6 @@ export default Tabs;
 const Tab = ({
   topic,
   title,
-  date,
   language,
   content,
   githubLink,
@@ -125,6 +124,7 @@ const Tab = ({
       {isActive ? (
         <div className={style['tab-content']}>
           <p>{content}</p>
+          <div className={style["tab-languages"]}><p>{language}</p></div>
           <div className={style['tab-links']}>
             <a href={githubLink}>See the code on github</a>
             <a href={liveLink}>See the hosted site</a>
