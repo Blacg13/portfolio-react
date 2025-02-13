@@ -58,7 +58,7 @@ const Tabs = () => {
       {tabs.map((tab) => {
         return (
           <Tab
-            tabId={tab.tabTitle + tab.id}
+            key={tab.id}
             topic={tab.tabTopic}
             title={tab.tabTitle}
             date={tab.projectDate}
@@ -75,7 +75,6 @@ const Tabs = () => {
 export default Tabs;
 
 const Tab = ({
-  tabId,
   topic,
   title,
   date,
@@ -103,7 +102,6 @@ const Tab = ({
 
   return (
     <section
-      id={`${tabId}_${topic}`}
       className={style[`${topic}`]}
       onClick={() => setActive(!isActive)}
     >
